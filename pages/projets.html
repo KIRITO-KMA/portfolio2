@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Title -->
+  <title>Accueil - Portfolio</title>
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Base Path -->
+  <meta name="base-path" content="/portfolioV0.3/">
+  <base href="/portfolioV0.3/">
+  <!-- Link Loader -->
+  <section id="headLink"></section>
+</head>
+<body>
+<!-- Header Loader -->
+<section id="mainHeader"></section>
+
+  <main>
+    <!-- Barre de filtrage CSS-only -->
+    <section class="projects-filter">
+      <form class="filter-form" onsubmit="return false">
+        <fieldset>
+          <legend>Filtrer par type</legend>
+          <input type="radio" name="type" id="all" checked><label for="all">Tous</label>
+          <input type="radio" name="type" id="web"><label for="web">Web</label>
+          <input type="radio" name="type" id="mobile"><label for="mobile">Mobile</label>
+        </fieldset>
+        <fieldset>
+          <legend>Trier</legend>
+          <input type="radio" name="sort" id="alpha" checked><label for="alpha">A-Z</label>
+          <input type="radio" name="sort" id="date"><label for="date">Date</label>
+        </fieldset>
+        <input type="text" placeholder="Recherche..." class="search-input" aria-label="Recherche projet">
+      </form>
+    </section>
+    <!-- Grille de projets -->
+    <section class="projects-grid">
+      <div class="grid-projects">
+        <!-- Carte projet exemple -->
+        <article class="card project web">
+          <img src="../assets/img/projet1.jpg" alt="Projet 1" />
+          <div class="card-content">
+            <h3><a href="../article/projet-exemple.html">Projet Alpha</a></h3>
+            <time datetime="2025-04-01">01/04/2025</time>
+            <p>Site vitrine pour une startup tech.</p>
+          </div>
+        </article>
+        <article class="card project mobile">
+          <img src="../assets/img/projet2.jpg" alt="Projet 2" />
+          <div class="card-content">
+            <h3>Projet Mobile</h3>
+            <time datetime="2025-02-10">10/02/2025</time>
+            <p>Application de gestion de tâches.</p>
+          </div>
+        </article>
+        <article class="card project web">
+          <img src="../assets/img/projet3.jpg" alt="Projet 3" />
+          <div class="card-content">
+            <h3>Portfolio Design</h3>
+            <time datetime="2024-12-20">20/12/2024</time>
+            <p>Refonte graphique d’un portfolio.</p>
+          </div>
+        </article>
+        <article class="card project web">
+          <img src="../assets/img/projet4.jpg" alt="Projet 4" />
+          <div class="card-content">
+            <h3>Landing Page</h3>
+            <time datetime="2024-09-15">15/09/2024</time>
+            <p>Landing page pour un événement.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <!-- Footer commun -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+    <div class="footer-copy">© 2025 MonPortfolio. Tous droits réservés.</div>
+  </footer>
+
+  <script src="assets/js/sectionsLoader.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article - Mon Portfolio</title>
+  <meta name="description" content="Exemple d'article de blog">
+  <meta name="base-path" content="/portfolioV0.3/">
+  <base href="/portfolioV0.3/">
+  <!-- Link Loader -->
+  <section id="headLink"></section>
+  <link rel="stylesheet" href="assets/css/article.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header Loader -->
+  <header id="mainHeader"></header>
+
+  <main class="article-container">
+    <article class="article">
+      <header class="article-header">
+        <span class="article-category">CSS</span>
+        <h1 class="article-title">Les meilleures pratiques CSS pour 2025</h1>
+        <div class="article-meta">
+          <span><i class="far fa-calendar"></i> 11 juin 2025</span>
+          <span><i class="far fa-clock"></i> 5 min de lecture</span>
+        </div>
+      </header>
+
+      <div class="article-content">
+        <div class="article-cover">
+          <img src="../assets/img/placeholder-article.jpg" alt="CSS moderne">
+        </div>
+
+        <div class="article-body">
+          <p class="article-intro">Dans cet article, nous allons explorer les meilleures pratiques CSS pour 2025 qui vous aideront à créer des sites web plus performants et maintenables.</p>
+
+          <h2>1. Utilisation des variables CSS</h2>
+          <p>Les variables CSS (propriétés personnalisées) sont essentielles pour maintenir une cohérence dans vos styles.</p>
+          
+          <pre><code class="language-css">:root {
+  --primary-color: #2563eb;
+  --spacing: 1rem;
+  --border-radius: 8px;
+}
+
+.button {
+  background: var(--primary-color);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+}</code></pre>
+
+          <h2>2. Flexbox et Grid</h2>
+          <p>Utilisez Flexbox pour les mises en page unidimensionnelles et Grid pour les mises en page bidimensionnelles.</p>
+          
+          <div class="grid-demo">
+            <div class="grid-item">Item 1</div>
+            <div class="grid-item">Item 2</div>
+            <div class="grid-item">Item 3</div>
+          </div>
+
+          <h2>3. Animations performantes</h2>
+          <p>Privilégiez les propriétés <code>transform</code> et <code>opacity</code> pour des animations fluides.</p>
+          
+          <button class="animate-button">Survolez-moi</button>
+        </div>
+
+        <footer class="article-footer">
+          <div class="article-tags">
+            <a href="#" class="tag">#CSS</a>
+            <a href="#" class="tag">#Frontend</a>
+            <a href="#" class="tag">#Web</a>
+          </div>
+          <div class="article-share">
+            <span>Partager :</span>
+            <a href="#" class="share-button" aria-label="Partager sur Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="share-button" aria-label="Partager sur LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </footer>
+      </div>
+    </article>
+
+    <aside class="article-sidebar">
+      <div class="about-author">
+        <h3>À propos de l'auteur</h3>
+        <div class="author-info">
+          <img src="../assets/img/avatar.jpg" alt="Auteur" class="author-avatar">
+          <div>
+            <h4>Votre Nom</h4>
+            <p>Développeur Front-end passionné par les technologies web modernes.</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer id="mainFooter" class="footer"></footer>
+  
+  <script src="../assets/js/sectionsLoader.js"></script>
+  <script src="../assets/js/article.js" defer></script>
+</body>
+</html>

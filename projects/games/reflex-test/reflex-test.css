@@ -1,0 +1,116 @@
+/* Section et wrapper */
+#reflex-test-section {
+  padding: 2rem;
+  background-color: #1e1e1e; /* Fond noir classique */
+  color: #ececec;
+  border-radius: 1rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#reflex-test-wrapper {
+  position: relative;
+}
+
+/* Mode plein écran */
+#reflex-test-wrapper.fullscreen {
+  position: fixed;
+  inset: 0;
+  background-color: #1e1e1e;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 0;
+}
+
+/* Conteneur du jeu */
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Zone de jeu : taille fixe */
+#screen {
+  width: 300px;
+  height: 150px;
+  border-radius: 10px;
+  background-color: #6c7a89; /* Gris clair */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: default;
+  user-select: none;
+  transition: background-color 0.3s, cursor 0.2s;
+  margin: 0 auto;
+  overflow: hidden;
+  color: #ececec;
+  max-width: 100%;
+}
+
+/* Curseur et états */
+#screen.waiting.active {
+  cursor: pointer;
+}
+#screen.ready {
+  background-color: #1abc9c; /* Vert doux */
+  cursor: pointer;
+}
+#screen.too-early {
+  background-color: #e74c3c; /* Rouge vif */
+  cursor: default;
+}
+
+/* Boutons généraux */
+button {
+  padding: 0.6rem 1.2rem;
+  background-color: #2c3a52;
+  color: #ececec;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background-color: #3b4660;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Boutons plein écran / réduire */
+#expand-btn,
+#reduce-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  font-size: 2.2rem; /* Taille augmentée */
+  line-height: 1;
+  color: #ececec;
+  cursor: pointer;
+}
+
+#expand-btn:hover,
+#reduce-btn:hover {
+  color: #1abc9c;
+}
+
+/* Texte et score */
+#game-container h1,
+#message,
+#score {
+  margin: 0;
+  text-align: center;
+  line-height: 1.3;
+}

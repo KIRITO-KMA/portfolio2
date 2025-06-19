@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Title -->
+  <title>Accueil - Portfolio</title>
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Base Path -->
+  <meta name="base-path" content="/portfolioV0.3/">
+  <base href="/portfolioV0.3/">  
+  <!-- Link Loader -->
+  <section id="headLink"></section>
+</head>
+<body class="home">
+<!-- Header Loader -->
+<section id="mainHeader"></section>
+
+  <main>
+    <!-- Hero Section -->
+    <hero class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Hello World</h1>
+        <p class="subtitle">Tout comme “Hello World” fut ma première ligne de code,<br>laissez-vous porter par ma passion et mes réalisations.</p>
+        <h2 class="typed-title">Développeur Web et d'Application en <span id="typed-outer" style="display:inline-block;position:relative;overflow:hidden;vertical-align:bottom;"><span id="theme-typed" style="display:inline-block;white-space:nowrap;"></span></span><span id="typed-cursor" aria-hidden="true">|</span></h2>
+      </div>
+    </hero>
+    
+    <!-- About Loader -->
+    <section id="about" class="about"></section>
+
+    <!-- News Loader -->
+    <section id="news" class="news-projects"></section>
+
+    <!-- Last Project -->
+    <div class="last-project">
+      <h2>Dernier jeux créé</h2>
+      <!-- Reflex Test Section -->
+      <section id="reflex-game-container"></section>
+    </div>
+    
+  </main>
+
+  <!-- Footer Loader -->
+  <footer id="mainFooter" class="footer"></footer>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if(window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Typing effect for hero
+    const themes = [
+      'HTML / CSS', 
+      'Java', 
+      'JavaScript', 
+      'PHP', 
+      'Python', 
+      'MySQL', 
+      'WordPress'
+    ];
+    let themeIndex = 0;
+    let showing = true;
+    function animateThemeWord() {
+    const outer = document.getElementById('typed-outer');
+    const typed = document.getElementById('theme-typed');
+    if (!outer || !typed) return;
+    // Set next word
+    typed.textContent = themes[themeIndex];
+    // Mesure la largeur du mot
+    outer.style.width = '0px';
+    // On force le reflow pour que la transition fonctionne même si la largeur précédente était déjà 0
+    void outer.offsetWidth;
+    // Révèle le mot
+    const wordWidth = typed.offsetWidth;
+    outer.style.transition = 'width 0.55s cubic-bezier(.77,0,.18,1)';
+    outer.style.width = wordWidth + 'px';
+    showing = true;
+    // Après affichage, attend puis cache
+    setTimeout(() => {
+    outer.style.width = '0px';
+    showing = false;
+    // Après l'animation de masquage, passe au mot suivant
+    setTimeout(() => {
+      themeIndex = (themeIndex + 1) % themes.length;
+      animateThemeWord();
+    }, 800); // Augmenté de 600ms à 1000ms
+    }, 2000); // Augmenté de 1700ms à 3000ms
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const outer = document.getElementById('typed-outer');
+    if (outer) {
+    outer.style.width = '0px';
+    setTimeout(animateThemeWord, 350);
+    }
+    });
+  </script>
+  <script src="assets/js/sectionsLoader.js"></script>
+</body>
+</html>
