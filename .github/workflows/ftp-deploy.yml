@@ -1,21 +1,21 @@
-name: Déploiement FTP vers O2switch
+name: 🚀 Déploiement FTP vers O2switch
 
 on:
   push:
     branches:
-      - master  # ou main, selon ton dépôt
+      - main  # change "main" si ta branche s'appelle "master"
 
 jobs:
   ftp-deploy:
-    name: FTP Deploy
+    name: 📤 Déploiement FTP
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: 🧾 Récupération du code
         uses: actions/checkout@v3
 
-      - name: Déploiement via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v3
+      - name: 📤 Déploiement FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
