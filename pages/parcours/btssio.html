@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>BTS SIO SLAM - Mon Parcours</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-path" content="/portfolio/">
+  <base href="/portfolio/"> 
+  <section id="headLink"></section>
+  <style>
+    @import url('/portfolio/assets/css/parcoursCards.css');
+    
+    .formation-details {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .formation-hero {
+      position: relative;
+      height: 300px;
+      background-image: url('/portfolio/assets/img/LyceeChaptal.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .formation-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.6);
+    }
+    
+    .formation-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 1rem;
+    }
+    
+    .formation-content {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    
+    .formation-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .info-box {
+      flex: 1;
+      min-width: 200px;
+      margin: 0.5rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    
+    .project-card {
+      background: #f8f9fa;
+      border-left: 4px solid #28a745;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .skill-category {
+      flex: 1;
+      min-width: 280px;
+    }
+    
+    @media (max-width: 768px) {
+      .formation-info {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section id="mainHeader"></section>
+
+  <div class="formation-details">
+    <div class="formation-hero">
+      <div class="formation-hero-content">
+        <h1>BTS SIO Option SLAM</h1>
+        <h2>Lycée Chaptal, Quimper</h2>
+        <p>2022 - 2024</p>
+      </div>
+    </div>
+
+    <div class="formation-content">
+      <div class="formation-info">
+        <div class="info-box">
+          <h3>Type de formation</h3>
+          <p>Formation initiale</p>
+        </div>
+        <div class="info-box">
+          <h3>Localisation</h3>
+          <p>Quimper, Bretagne, France</p>
+        </div>
+        <div class="info-box">
+          <h3>Option</h3>
+          <p>SLAM (Solutions Logicielles et Applications Métiers)</p>
+        </div>
+      </div>
+
+      <h2>Présentation de la formation</h2>
+      <p>Le BTS Services Informatiques aux Organisations option SLAM est une formation de niveau Bac+2 qui forme des spécialistes du développement d'applications. La formation allie enseignements théoriques et pratiques avec une forte dimension professionnelle.</p>
+      
+      <h2>Compétences acquises</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Développement</h3>
+          <ul>
+            <li>Développement web (HTML5, CSS3, JavaScript, PHP)</li>
+            <li>Programmation orientée objet (Java, PHP)</li>
+            <li>Bases de données (SQL, MySQL, MariaDB)</li>
+            <!-- <li>Frameworks (...)</li> -->
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Gestion de projet</h3>
+          <ul>
+            <li>Méthodes agiles (Scrum, Kanban)</li>
+            <li>Gestion de versions (Git, GitLab, GitHub)</li>
+            <li>Rédaction de cahiers des charges</li>
+            <li>Tests et documentation technique</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Projets réalisés</h2>
+      
+      <div class="project-card">
+        <h3>Application de gestion de parc informatique</h3>
+        <p><strong>Technologies :</strong> PHP, MySQL, Bootstrap</p>
+        <p><strong>Description :</strong> Développement d'une application web pour la gestion du parc informatique du lycée, permettant le suivi des équipements, des interventions et des demandes de maintenance.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Site e-commerce</h3>
+        <p><strong>Technologies :</strong> Laravel, Vue.js, MySQL</p>
+        <p><strong>Description :</strong> Conception et développement d'une plateforme e-commerce complète avec gestion des utilisateurs, catalogue produits, panier et système de paiement.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Application mobile de suivi sportif</h3>
+        <p><strong>Technologies :</strong> React Native, Node.js, MongoDB</p>
+        <p><strong>Description :</strong> Développement d'une application mobile permettant de suivre ses performances sportives, avec synchronisation des données et tableaux de bord personnalisés.</p>
+      </div>
+
+      <h2>Stages en entreprise</h2>
+      <div class="project-card">
+        <h3>Stage de 1ère année - Softlor Informatique</h3>
+        <p><strong>Durée :</strong> 1 mois</p>
+        <p><strong>Missions : 
+          </strong> Développement de sites vitrines WordPress pour des clients professionnels, optimisation des performances et référencement naturel... 
+          <br>
+          Voir plus :  <a href="https://drive.google.com/file/d/10pcOA2bgunBD4VcEaK8WqW8TbJ04wLBs/view?usp=drive_link" target="_blank"><i class="fas fa-file-alt"></i> Lien du rapport de stage.</a>
+        </p>
+      </div>
+      <div class="project-card">
+        <h3>Stage de 2ème année - Association ACCB</h3>
+        <p><strong>Durée :</strong> 1 mois</p>
+        <p><strong>Missions :
+          </strong> Développement du site web et de leur réseaux sociaux de l'association ACCB.
+          <br>
+          Voir plus :  <a href="https://drive.google.com/file/d/1nJ_EAWGIsVK41X1XtyMJU4Ro2bbNejVK/view?usp=drive_link" target="_blank"><i class="fas fa-file-alt"></i> Lien du rapport de stage.</a>
+        </p>
+      </div>
+
+      <h2>Certifications</h2>
+      <ul>
+        <!-- <li>TOEIC : 850/990</li> -->
+        <li>PIX : Certification des compétences numériques</li>
+        <!-- <li>Certification Opquast - Maîtrise de la qualité en projet Web</li> -->
+      </ul>
+      
+      <h2>Liens utiles</h2>
+      <div class="useful-links" style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0;">
+        <a href="https://www.lycee-chaptal.fr/" target="_blank" class="btn btn-outline-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-globe"></i>
+          Site du Lycée Chaptal
+        </a>
+        <a href="https://drive.google.com/file/d/10pcOA2bgunBD4VcEaK8WqW8TbJ04wLBs/view?usp=drive_link" target="_blank" class="btn btn-outline-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-globe"></i>
+          Rapport de stage Softlor
+        </a>
+        <a href="https://drive.google.com/file/d/1nJ_EAWGIsVK41X1XtyMJU4Ro2bbNejVK/view?usp=drive_link" target="_blank" class="btn btn-outline-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-globe"></i>
+          Rapport de stage ACCB
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer id="mainFooter" class="footer"></footer>
+  <script src="assets/js/sectionsLoader.js"></script>
+</body>
+</html>

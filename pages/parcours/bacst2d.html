@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Bac STI2D - Mon Parcours</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-path" content="/portfolio/">
+  <base href="/portfolio/"> 
+  <section id="headLink"></section>
+  <style>
+    @import url('/portfolio/assets/css/parcoursCards.css');
+    
+    .formation-details {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .formation-hero {
+      position: relative;
+      height: 300px;
+      background-image: url('/portfolio/assets/img/LyceeColbert.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .formation-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.6);
+    }
+    
+    .formation-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 1rem;
+    }
+    
+    .formation-content {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    
+    .formation-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .info-box {
+      flex: 1;
+      min-width: 200px;
+      margin: 0.5rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    
+    .project-card {
+      background: #f8f9fa;
+      border-left: 4px solid #28a745;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .skill-category {
+      flex: 1;
+      min-width: 280px;
+    }
+    
+    @media (max-width: 768px) {
+      .formation-info {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section id="mainHeader"></section>
+
+  <div class="formation-details">
+    <div class="formation-hero">
+      <div class="formation-hero-content">
+        <h1>Baccalauréat STI2D</h1>
+        <h2>Lycée Colbert, Lorient</h2>
+        <p>2019 - 2022</p>
+      </div>
+    </div>
+
+    <div class="formation-content">
+      <div class="formation-info">
+        <div class="info-box">
+          <h3>Type de formation</h3>
+          <p>Formation initiale</p>
+        </div>
+        <div class="info-box">
+          <h3>Localisation</h3>
+          <p>Lorient, Bretagne</p>
+        </div>
+        <div class="info-box">
+          <h3>Spécialité</h3>
+          <p>SIN (Systèmes d'Information et Numérique)</p>
+        </div>
+      </div>
+
+      <h2>Présentation de la formation</h2>
+      <p>Le Baccalauréat Sciences et Technologies de l'Industrie et du Développement Durable (STI2D) option Systèmes d'Information et Numérique (SIN) est une formation technologique qui allie enseignements généraux et technologiques avec une approche concrète et expérimentale.</p>
+      
+      <h2>Compétences acquises</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Informatique et numérique</h3>
+          <ul>
+            <li>Programmation (Python, C, Arduino)</li>
+            <li>Développement web (HTML, CSS, JavaScript)</li>
+            <li>Réseaux informatiques</li>
+            <li>Bases de données</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Technologies industrielles</h3>
+          <ul>
+            <li>Électronique numérique</li>
+            <li>Automatismes</li>
+            <li>Énergies et environnement</li>
+            <li>CAO/DAO (SolidWorks)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Projets réalisés</h2>
+      
+      <div class="project-card">
+        <h3>Projet de terminale : Station météo connectée</h3>
+        <p><strong>Technologies :</strong> Arduino, capteurs environnementaux, IoT</p>
+        <p><strong>Description :</strong> Conception et réalisation d'une station météo autonome mesurant température, humidité et qualité de l'air, avec affichage des données sur une interface web.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Projet de première : Maison connectée</h3>
+        <p><strong>Technologies :</strong> Raspberry Pi, Python, domotique</p>
+        <p><strong>Description :</strong> Simulation d'un système domotique contrôlant l'éclairage, le chauffage et la sécurité d'une maison à travers une interface web.</p>
+      </div>
+
+      <h2>Poursuites d'études</h2>
+      <p>Ce baccalauréat m'a permis d'intégrer un BTS SIO option SLAM, me spécialisant ainsi dans le développement logiciel et les applications métiers.</p>
+      
+      <h2>Certifications</h2>
+      <ul>
+        <li>Certification PIX</li>
+        <li>SST (Sauveteur Secouriste du Travail)</li>
+        <li>ASSR niveau 2</li>
+      </ul>
+      
+      <h2>Liens utiles</h2>
+      <div class="useful-links" style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0;">
+        <a href="https://lycee-colbert-lorient.com/" target="_blank" class="btn btn-outline-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-globe"></i>
+          Site du Lycée Colbert
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer id="mainFooter" class="footer"></footer>
+  <script src="assets/js/sectionsLoader.js"></script>
+</body>
+</html>

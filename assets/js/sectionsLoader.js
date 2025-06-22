@@ -68,15 +68,15 @@ const SectionLoader = {
       html: "pages/home/about.html"
     });
 
-    this.loadSection("news", {
-      html: "pages/home/news.html",
-      js:   "pages/home/news.js",
-    });
+    // this.loadSection("news", {
+    //   html: "pages/home/news.html",
+    //   js:   "pages/home/news.js",
+    // });
 
-    this.loadSection("contact", {
-      html: "pages/home/contact.html",
-      js:   "pages/home/contact.js"
-    });
+    // this.loadSection("contact", {
+    //   html: "pages/home/contact.html",
+    //   js:   "pages/home/contact.js"
+    // });
 
     // Exemples futurs :
     // this.loadSection("chatbot-container", { 

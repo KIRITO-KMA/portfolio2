@@ -1,9 +1,9 @@
 // reflex-test.js
 
 // Sons
-const clickSound  = new Audio("projets/games/reflex-test/sound/click.mp3");
-const recordSound = new Audio("projets/games/reflex-test/sound/record.mp3");
-const failSound   = new Audio("projets/games/reflex-test/sound/too-early.mp3");
+const clickSound  = new Audio("/portfolio/projects/games/reflex-test/sound/click.mp3");
+const recordSound = new Audio("/portfolio/projects/games/reflex-test/sound/record.mp3");
+const failSound   = new Audio("/portfolio/projects/games/reflex-test/sound/too-early.mp3");
 
 // Éléments
 const startButton = document.getElementById("start-button");
