@@ -9,6 +9,8 @@
   --text-light: #ffffff;
   --text-muted: #a0a0a0;
   --border: #e5e9f2;
+  --light-blue: #3498db;
+  --last-updated: #666;
   --radius: 10px;
   --shadow: 0 2px 8px rgba(0,0,0,0.08);
   --transition: all 0.3s ease;
@@ -1337,57 +1339,164 @@ a:hover, a:focus {
   }
 }
 
-/* ========== MENTIONS LEGALES ========== */
+/* ========== PAGES LÉGALES ========== */
 .legal-container {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  margin: 2rem auto 4rem;
+  padding: 2rem;
+  background: var(--bg-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--text-dark);
   line-height: 1.7;
-  color: #333;
 }
 
 .legal h1 {
   color: var(--primary);
   font-size: 2.2rem;
   margin-bottom: 2rem;
-  text-align: center;
   padding-bottom: 1rem;
-  border-bottom: 2px solid #f0f0f0;
+  text-align: center;
+  border-bottom: 2px solid var(--border);
 }
 
 .legal h2 {
   color: var(--primary);
-  font-size: 1.5rem;
-  margin: 2.5rem 0 1rem;
+  font-size: 1.6rem;
+  margin: 2.5rem 0 1.2rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--border);
+}
+
+.legal h3 {
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  margin: 2rem 0 1rem;
 }
 
 .legal p {
   margin-bottom: 1.2rem;
   text-align: justify;
+  color: var(--text-dark);
 }
 
-.legal ul {
-  margin: 1rem 0 1.5rem 1.5rem;
+.legal ul, .legal ol {
+  margin: 1rem 0 1.5rem 2rem;
+  padding: 0;
 }
 
 .legal li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+}
+
+.legal ul li {
   list-style-type: disc;
 }
 
-.legal strong {
-  color: var(--primary);
-  font-weight: 600;
+.legal ol li {
+  list-style-type: decimal;
 }
 
+.legal a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legal a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Tableau des cookies */
+.cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.cookie-table th, 
+.cookie-table td {
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid #e0e0e0;
+}
+
+.cookie-table th {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  border-color: rgba(255,255,255,0.2);
+}
+
+.cookie-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.cookie-table tr:hover {
+  background-color: #f0f7ff;
+}
+
+/* Note de bas de page */
 .last-updated {
   margin-top: 3rem;
-  font-style: italic;
-  color: #666;
-  text-align: right;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+  color: var(--text-muted);
   font-size: 0.9rem;
+  text-align: right;
+  font-style: italic;
+}
+
+/* Style pour les blocs d'information */
+.note {
+  background: rgba(37, 99, 235, 0.1);
+  border-left: 4px solid var(--primary);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* Style pour les boutons de gestion des cookies */
+.cookie-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.cookie-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.cookie-btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.cookie-btn.secondary {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  color: var(--text-dark);
+}
+
+.cookie-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 @media (max-width: 768px) {
