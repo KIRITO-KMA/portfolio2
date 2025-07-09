@@ -7,39 +7,57 @@ const SectionLoader = {
    * @param {Object} paths     Les chemins vers les fichiers { html, css, js }
    */
   loadSection(targetId, paths) {
-    const container = document.getElementById(targetId);
-    if (!container) {
-      console.warn(`⚠️ Container "#${targetId}" introuvable.`);
-      return;
-    }
+    return new Promise((resolve, reject) => {
+      const container = document.getElementById(targetId);
+      if (!container) {
+        const error = `Élément avec l'ID ${targetId} non trouvé`;
+        console.error(error);
+        reject(new Error(error));
+        return;
+      }
 
-    // 1. Charger le HTML
-    fetch(paths.html)
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.text();
-      })
-      .then(html => {
-        container.innerHTML = html;
 
-        // 2. Injecter le CSS
-        if (paths.css) {
-          const link = document.createElement("link");
-          link.rel = "stylesheet";
-          link.href = paths.css;
-          document.head.appendChild(link);
-        }
+      // 1. Charger le HTML
+      fetch(paths.html)
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+          return res.text();
+        })
+        .then(html => {
+          container.innerHTML = html;
 
-        // 3. Injecter le JS SANS defer
-        if (paths.js) {
-          const script = document.createElement("script");
-          script.src = paths.js;
-          document.body.appendChild(script);
-        }
-      })
-      .catch(err => {
-        console.error(`Erreur lors du chargement de ${paths.html} :`, err);
-      });
+          // 2. Injecter le CSS
+          if (paths.css) {
+            const link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = paths.css;
+            link.onload = () => {};
+            link.onerror = (e) => console.error(`Erreur de chargement du CSS ${paths.css}:`, e);
+            document.head.appendChild(link);
+          }
+
+          // 3. Injecter le JS si présent
+          if (paths.js) {
+            const script = document.createElement("script");
+            script.src = paths.js;
+            script.onload = function() {
+              resolve({ targetId, status: 'complete' });
+            };
+            script.onerror = (e) => {
+              console.error(`Erreur de chargement du JS ${paths.js}:`, e);
+              reject(e);
+            };
+            document.body.appendChild(script);
+          } else {
+            // Si pas de JS, résoudre immédiatement
+            resolve({ targetId, status: 'complete' });
+          }
+        })
+        .catch(err => {
+          console.error(`Erreur lors du chargement de la section ${targetId}:`, err);
+          reject(err);
+        });
+    });
   },
 
   /** Initialise toutes les sections */
@@ -66,6 +84,11 @@ const SectionLoader = {
 
     this.loadSection("about", {
       html: "pages/home/about.html"
+    });
+
+    this.loadSection("citations", {
+      html: "pages/home/citations/citations.html",
+      css: "pages/home/citations/citations.css"
     });
 
     // this.loadSection("news", {

@@ -101,6 +101,25 @@ button:active {
   cursor: pointer;
 }
 
+@media (max-width: 767px) {
+  #expand-btn,
+  #reduce-btn {
+    /* position: fixed;
+    top: 0.8rem;
+    right: 0.8rem;
+    font-size: 1.8rem;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); */
+  }
+}
+
 #expand-btn:hover,
 #reduce-btn:hover {
   color: #1abc9c;

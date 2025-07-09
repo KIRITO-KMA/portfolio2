@@ -1,0 +1,76 @@
+/* ========== CITATIONS ALÉATOIRES ========== */
+.random-quote {
+    padding: 3rem 1.5rem;
+    background: var(--bg-light);
+    margin: 2rem 0;
+  }
+  
+  .quote-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .quote-container blockquote {
+    margin: 0;
+    padding: 2rem;
+    position: relative;
+  }
+  
+  .quote-container blockquote p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    font-style: italic;
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 0 2rem;
+  }
+  
+  .quote-container blockquote p::before,
+  .quote-container blockquote p::after {
+    content: '"';
+    font-size: 3rem;
+    color: var(--primary);
+    opacity: 0.3;
+    position: absolute;
+    line-height: 1;
+    font-family: Georgia, serif;
+  }
+  
+  .quote-container blockquote p::before {
+    content: '\201C';
+    top: 0;
+    left: 0;
+  }
+  
+  .quote-container blockquote p::after {
+    content: '\201D';
+    bottom: -1.5rem;
+    right: 0;
+  }
+  
+  .quote-container blockquote footer {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+  
+  .quote-container blockquote footer::before {
+    content: '— ';
+  }
+  
+  @media (max-width: 768px) {
+    .quote-container blockquote p {
+      font-size: 1.2rem;
+      padding: 0 1.5rem;
+    }
+    
+    .quote-container blockquote p::before,
+    .quote-container blockquote p::after {
+      font-size: 2.5rem;
+    }
+  }
+  
