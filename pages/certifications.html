@@ -1,266 +1,160 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Title -->
   <title>Certifications - Portfolio</title>
-  <!-- Meta -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Base Path -->
   <meta name="base-path" content="/portfolio/">
-  <base href="/portfolio/"> 
-  <!-- Link Loader -->
+  <base href="/portfolio/">
   <section id="headLink"></section>
-  <link rel="stylesheet" href="assets/css/parcoursCards.css">
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #2ecc71;
+      --text-color: #2c3e50;
+      --text-light: #7f8c8d;
+      --bg-color: #f8f9fa;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    .coming-soon {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .coming-soon::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, rgba(52, 152, 219, 0) 70%);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+      z-index: -1;
+    }
+    
+    .coming-soon::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(52, 152, 219, 0.05) 0%, rgba(52, 152, 219, 0) 70%);
+      border-radius: 50%;
+      bottom: -200px;
+      left: -100px;
+      z-index: -1;
+    }
+    
+    .icon-container {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .icon {
+      font-size: 4rem;
+      color: white;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin: 0 0 1rem 0;
+      background: linear-gradient(135deg, var(--text-color), var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .btn-return {
+      display: inline-block;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+    
+    .btn-return:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      .icon-container {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header Loader -->
   <section id="mainHeader"></section>
 
-  <br>
-  <br>
-  <br>
-  <main class="parcours-container">
-    <h1>Mes Certifications</h1>
-    
-    <section class="experience">
-      <h2>Certifications PIX</h2>
-      <div class="experience-grid">
-        <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
-          <div style="
-          position: absolute; 
-          top: 0; 
-          left: 0; 
-          right: 0; 
-          bottom: 0; 
-          background-color: #4a6bdf; 
-          opacity: 0.1; 
-          z-index: 1; 
-          pointer-events: none;">
-          </div>
-          <div style="position: relative; z-index: 2;">
-            <div class="experience-header">
-              <span class="date">2023</span>
-              <span class="badge" style="background-color: #4a6bdf;">PIX</span>
-            </div>
-            <h3>Certification PIX - Niveau avancé</h3>
-            <p class="company">Évaluation et certification des compétences numériques</p>
-            <p>Validation des compétences numériques selon le cadre de référence européen DIGCOMP</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="experience">
-      <h2>Formations OpenClassrooms</h2>
-      <div class="experience-grid">
-        <!-- Python -->
-        <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
-          <div style="
-          position: absolute; 
-          top: 0; 
-          left: 0; 
-          right: 0; 
-          bottom: 0; 
-          background-color: #7451eb; 
-          opacity: 0.1; 
-          z-index: 1; 
-          pointer-events: none;">
-          </div>
-          <div style="position: relative; z-index: 2;">
-            <div class="experience-header">
-              <span class="date">2023</span>
-              <span class="badge" style="background-color: #7451eb;">OpenClassrooms</span>
-            </div>
-            <h3>Apprenez à programmer avec Python</h3>
-            <p class="company">Formation en ligne - 35h</p>
-            <p>Maîtrise des fondamentaux de la programmation Python et développement d'applications</p>
-          </div>
-        </div>
-
-        <!-- Développement Web -->
-        <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
-          <div style="
-          position: absolute; 
-          top: 0; 
-          left: 0; 
-          right: 0; 
-          bottom: 0; 
-          background-color: #2ecc71; 
-          opacity: 0.1; 
-          z-index: 1; 
-          pointer-events: none;">
-          </div>
-          <div style="position: relative; z-index: 2;">
-            <div class="experience-header">
-              <span class="date">2023</span>
-              <span class="badge" style="background-color: #2ecc71;">OpenClassrooms</span>
-            </div>
-            <h3>Développez votre site web avec HTML5 et CSS3</h3>
-            <p class="company">Formation en ligne - 30h</p>
-            <p>Création de sites web responsifs avec les dernières normes HTML5 et CSS3</p>
-          </div>
-        </div>
-
-        <!-- JavaScript -->
-        <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
-          <div style="
-          position: absolute; 
-          top: 0; 
-          left: 0; 
-          right: 0; 
-          bottom: 0; 
-          background-color: #f39c12; 
-          opacity: 0.1; 
-          z-index: 1; 
-          pointer-events: none;">
-          </div>
-          <div style="position: relative; z-index: 2;">
-            <div class="experience-header">
-              <span class="date">2023</span>
-              <span class="badge" style="background-color: #f39c12;">OpenClassrooms</span>
-            </div>
-            <h3>Apprenez à programmer avec JavaScript</h3>
-            <p class="company">Formation en ligne - 40h</p>
-            <p>Découverte du langage JavaScript et de ses fonctionnalités avancées</p>
-          </div>
-        </div>
-
-        <!-- Git et GitHub -->
-        <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
-          <div style="
-          position: absolute; 
-          top: 0; 
-          left: 0; 
-          right: 0; 
-          bottom: 0; 
-          background-color: #e74c3c; 
-          opacity: 0.1; 
-          z-index: 1; 
-          pointer-events: none;">
-          </div>
-          <div style="position: relative; z-index: 2;">
-            <div class="experience-header">
-              <span class="date">2023</span>
-              <span class="badge" style="background-color: #e74c3c;">OpenClassrooms</span>
-            </div>
-            <h3>Gérez du code avec Git et GitHub</h3>
-            <p class="company">Formation en ligne - 20h</p>
-            <p>Maîtrise des concepts de contrôle de version avec Git et collaboration sur GitHub</p>
-          </div>
-        </div>
-
-        <!-- Base de données -->
-        <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
-          <div style="
-          position: absolute; 
-          top: 0; 
-          left: 0; 
-          right: 0; 
-          bottom: 0; 
-          background-color: #9b59b6; 
-          opacity: 0.1; 
-          z-index: 1; 
-          pointer-events: none;">
-          </div>
-          <div style="position: relative; z-index: 2;">
-            <div class="experience-header">
-              <span class="date">2023</span>
-              <span class="badge" style="background-color: #9b59b6;">OpenClassrooms</span>
-            </div>
-            <h3>Concevez votre base de données</h3>
-            <p class="company">Formation en ligne - 25h</p>
-            <p>Modélisation et conception de bases de données relationnelles avec SQL</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="experience">
-      <h2>Sécurité Informatique (ANSSI)</h2>
-      <div class="experience-grid">
-        <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
-          <div style="
-          position: absolute; 
-          top: 0; 
-          left: 0; 
-          right: 0; 
-          bottom: 0; 
-          background-color: #2ecc71; 
-          opacity: 0.1; 
-          z-index: 1; 
-          pointer-events: none;">
-          </div>
-          <div style="position: relative; z-index: 2;">
-            <div class="experience-header">
-              <span class="date">2023</span>
-              <span class="badge" style="background-color: #2ecc71;">ANSSI</span>
-            </div>
-            <h3>Sensibilisation à la cybersécurité</h3>
-            <p class="company">Agence Nationale de la Sécurité des Systèmes d'Information</p>
-            <p>Acquisition des fondamentaux de la sécurité des systèmes d'information</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="experience">
-      <h2>Autres Certifications</h2>
-      <div class="experience-grid">
-        <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
-          <div style="
-          position: absolute; 
-          top: 0; 
-          left: 0; 
-          right: 0; 
-          bottom: 0; 
-          background-color: #e74c3c; 
-          opacity: 0.1; 
-          z-index: 1; 
-          pointer-events: none;">
-          </div>
-          <div style="position: relative; z-index: 2;">
-            <div class="experience-header">
-              <span class="date">2023</span>
-              <span class="badge" style="background-color: #e74c3c;">AWS</span>
-            </div>
-            <h3>AWS Cloud Practitioner</h3>
-            <p class="company">Amazon Web Services</p>
-            <p>Fondamentaux du cloud computing et des services AWS</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <main class="coming-soon">
+    <div class="icon-container">
+      <i class="fas fa-award icon"></i>
+    </div>
+    <h1>Bientôt disponible</h1>
+    <p>Je suis en train de préparer une présentation complète de mes certifications et compétences. Cette section sera bientôt mise à jour avec toutes les informations détaillées.</p>
+    <a href="index.html" class="btn-return">Retour à l'accueil</a>
   </main>
 
-  <!-- Footer Loader -->
   <footer id="mainFooter" class="footer"></footer>
-
-  <script>
-    // Chargement du header et du footer
-    document.addEventListener('DOMContentLoaded', function() {
-      // Chargement du header
-      fetch('includes/header.html')
-        .then(response => response.text())
-        .then(html => {
-          document.getElementById('mainHeader').innerHTML = html;
-          // Mise à jour du lien actif
-          const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-          document.querySelectorAll('nav a').forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-              link.classList.add('active');
-            }
-          });
-        });
-
-      // Chargement du footer
-      fetch('includes/footer.html')
-        .then(response => response.text())
-        .then(html => {
-          document.getElementById('mainFooter').innerHTML = html;
-        });
-    });
-  </script>
+  
+  <!-- Scripts -->
   <script src="assets/js/sectionsLoader.js"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
