@@ -62,12 +62,14 @@ const SectionLoader = {
 
   /** Initialise toutes les sections */
   init() {
-    this.loadSection("reflex-game-container", {
-      html: "projects/games/reflex-test/reflex-test.html",
-      css:  "projects/games/reflex-test/reflex-test.css",
-      js:   "projects/games/reflex-test/reflex-test.js"
-    });
+    //Games
+    // this.loadSection("reflex-game-container", {
+    //   html: "projects/games/reflex-test/reflex-test.html",
+    //   css:  "projects/games/reflex-test/reflex-test.css",
+    //   js:   "projects/games/reflex-test/reflex-test.js"
+    // });
 
+    //Pages
     this.loadSection("mainHeader", {
       html: "pages/anyWhere/mainHeader.html",
       css: "assets/css/mainHeader.css"
@@ -86,10 +88,10 @@ const SectionLoader = {
       html: "pages/home/about.html"
     });
 
-    this.loadSection("citations", {
-      html: "pages/home/citations/citations.html",
-      css: "pages/home/citations/citations.css"
-    });
+    // this.loadSection("citations", {
+    //   html: "pages/home/citations/citations.html",
+    //   css: "pages/home/citations/citations.css"
+    // });
 
     // this.loadSection("news", {
     //   html: "pages/home/news.html",

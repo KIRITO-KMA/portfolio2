@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pierre-Feuille-Ciseaux | Jeu interactif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        @keyframes flip {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+        .choice-animation {
+            animation: bounce 0.5s ease;
+        }
+        .shake-animation {
+            animation: shake 0.3s ease;
+        }
+        .pulse-animation {
+            animation: pulse 0.5s ease;
+        }
+        .flip-animation {
+            animation: flip 0.6s ease;
+        }
+        .glow-win {
+            box-shadow: 0 0 20px 5px rgba(52, 211, 153, 0.7);
+        }
+        .glow-lose {
+            box-shadow: 0 0 20px 5px rgba(239, 68, 68, 0.7);
+        }
+        .glow-draw {
+            box-shadow: 0 0 20px 5px rgba(156, 163, 175, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-purple-900 min-h-screen text-white font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+                Pierre-Feuille-Ciseaux
+            </h1>
+            <p class="text-xl text-gray-300">Premier à 3 victoires gagne la partie!</p>
+        </header>
+
+        <div class="max-w-4xl mx-auto">
+            <!-- Sélection de difficulté -->
+            <div id="difficulty-section" class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 mb-8 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4 text-center">Choisissez la difficulté</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button data-difficulty="easy" class="difficulty-btn px-6 py-3 rounded-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 transition-all transform hover:scale-105">
+                        <i class="fas fa-smile mr-2"></i> Facile
+                    </button>
+                    <button data-difficulty="medium" class="difficulty-btn px-6 py-3 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 transition-all transform hover:scale-105">
+                        <i class="fas fa-meh mr-2"></i> Moyen
+                    </button>
+                    <button data-difficulty="hard" class="difficulty-btn px-6 py-3 rounded-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-400 hover:to-red-500 transition-all transform hover:scale-105">
+                        <i class="fas fa-frown mr-2"></i> Difficile
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scores -->
+            <div class="flex justify-between items-center mb-8">
+                <div class="text-center bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-4 w-1/3 mx-2">
+                    <h3 class="text-lg font-medium mb-2">Joueur</h3>
+                    <div id="player-score" class="text-4xl font-bold text-green-400">0</div>
+                </div>
+                <div class="text-center text-xl font-medium mx-4">
+                    VS
+                </div>
+                <div class="text-center bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-4 w-1/3 mx-2">
+                    <h3 class="text-lg font-medium mb-2">Ordinateur</h3>
+                    <div id="computer-score" class="text-4xl font-bold text-red-400">0</div>
+                </div>
+            </div>
+
+            <!-- Zone de jeu -->
+            <div id="game-section" class="hidden bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 mb-8 shadow-lg">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                    <!-- Choix du joueur -->
+                    <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                        <h3 class="text-xl font-medium mb-4 text-center">Votre choix</h3>
+                        <div class="flex justify-center space-x-4">
+                            <button data-choice="rock" class="choice-btn w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-800 flex items-center justify-center text-3xl hover:bg-gray-700 transition-all transform hover:scale-110">
+                                🪨
+                            </button>
+                            <button data-choice="paper" class="choice-btn w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-800 flex items-center justify-center text-3xl hover:bg-gray-700 transition-all transform hover:scale-110">
+                                📄
+                            </button>
+                            <button data-choice="scissors" class="choice-btn w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-800 flex items-center justify-center text-3xl hover:bg-gray-700 transition-all transform hover:scale-110">
+                                ✂️
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Résultats -->
+                    <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                        <div id="result-display" class="text-center py-4">
+                            <p id="round-result" class="text-xl font-medium mb-2">Prêt à jouer?</p>
+                            <p id="game-status" class="text-gray-300">Choisissez une option</p>
+                        </div>
+                    </div>
+
+                    <!-- Choix de l'ordinateur -->
+                    <div class="w-full md:w-1/3">
+                        <h3 class="text-xl font-medium mb-4 text-center">Ordinateur</h3>
+                        <div class="flex justify-center">
+                            <div id="computer-choice" class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-800 flex items-center justify-center text-3xl">
+                                ❓
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boutons de fin de partie -->
+                <div class="text-center space-x-4">
+                    <button id="restart-btn" class="hidden px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-full transition-all transform hover:scale-105">
+                        <i class="fas fa-redo mr-2"></i> Rejouer
+                    </button>
+                    <button id="change-difficulty-btn" class="hidden px-6 py-3 bg-purple-700 hover:bg-purple-600 rounded-full transition-all transform hover:scale-105">
+                        <i class="fas fa-cog mr-2"></i> Changer difficulté
+                    </button>
+                </div>
+            </div>
+
+            <!-- Historique -->
+            <div id="history-section" class="hidden bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 shadow-lg">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-semibold">Historique des parties</h2>
+                    <button id="clear-history-btn" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-full transition-all transform hover:scale-105">
+                        <i class="fas fa-trash-alt mr-2"></i> Effacer
+                    </button>
+                </div>
+                <div id="history-list" class="space-y-2 max-h-60 overflow-y-auto">
+                    <!-- Les résultats des parties seront ajoutés ici -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sons -->
+    <audio id="click-sound" src="#"></audio>
+    <audio id="win-sound" src="sound/win.wav"></audio>
+    <audio id="lose-sound" src="sound/lose.wav"></audio>
+    <audio id="draw-sound" src="sound/draw.wav"></audio>
+    <audio id="game-over-sound" src="sound/game-over.wav"></audio>
+
+    <script>
+        // Éléments du DOM
+        const difficultySection = document.getElementById('difficulty-section');
+        const gameSection = document.getElementById('game-section');
+        const historySection = document.getElementById('history-section');
+        const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+        const choiceBtns = document.querySelectorAll('.choice-btn');
+        const computerChoiceDisplay = document.getElementById('computer-choice');
+        const playerScoreDisplay = document.getElementById('player-score');
+        const computerScoreDisplay = document.getElementById('computer-score');
+        const roundResultDisplay = document.getElementById('round-result');
+        const gameStatusDisplay = document.getElementById('game-status');
+        const restartBtn = document.getElementById('restart-btn');
+        const historyList = document.getElementById('history-list');
+        
+        // Sons
+        const clickSound = document.getElementById('click-sound');
+        const winSound = document.getElementById('win-sound');
+        const loseSound = document.getElementById('lose-sound');
+        const drawSound = document.getElementById('draw-sound');
+        const gameOverSound = document.getElementById('game-over-sound');
+        
+        // Variables du jeu
+        let playerScore = 0;
+        let computerScore = 0;
+        let difficulty = '';
+        let gameHistory = [];
+        let playerChoicesHistory = [];
+        
+        // Émoticônes pour les choix
+        const choiceEmojis = {
+            rock: '🪨',
+            paper: '📄',
+            scissors: '✂️'
+        };
+        
+        // Événements
+        difficultyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                playSound(clickSound);
+                difficulty = btn.dataset.difficulty;
+                difficultyBtns.forEach(b => b.classList.remove('ring-4', 'ring-white'));
+                btn.classList.add('ring-4', 'ring-white');
+                
+                // Démarrer le jeu
+                setTimeout(() => {
+                    difficultySection.classList.add('hidden');
+                    gameSection.classList.remove('hidden');
+                    historySection.classList.remove('hidden');
+                    resetGame();
+                }, 500);
+            });
+        });
+        
+        choiceBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (playerScore >= 3 || computerScore >= 3) return;
+                
+                playSound(clickSound);
+                const playerChoice = btn.dataset.choice;
+                playRound(playerChoice);
+            });
+        });
+        
+        restartBtn.addEventListener('click', () => {
+            playSound(clickSound);
+            resetGame();
+        });
+
+        const changeDifficultyBtn = document.getElementById('change-difficulty-btn');
+        const clearHistoryBtn = document.getElementById('clear-history-btn');
+        
+        changeDifficultyBtn.addEventListener('click', () => {
+        
+        clearHistoryBtn.addEventListener('click', () => {
+            playSound(clickSound);
+            historyList.innerHTML = '';
+            gameHistory = [];
+        });
+            playSound(clickSound);
+            gameSection.classList.add('hidden');
+            historySection.classList.add('hidden');
+            difficultySection.classList.remove('hidden');
+            difficultyBtns.forEach(b => b.classList.remove('ring-4', 'ring-white'));
+            changeDifficultyBtn.classList.add('hidden');
+        });
+        
+        // Fonctions du jeu
+        function playRound(playerChoice) {
+            // Animation du choix du joueur
+            const playerBtn = document.querySelector(`[data-choice="${playerChoice}"]`);
+            playerBtn.classList.add('choice-animation');
+            setTimeout(() => playerBtn.classList.remove('choice-animation'), 500);
+            
+            // Choix de l'ordinateur en fonction de la difficulté
+            const computerChoice = getComputerChoice(playerChoice);
+            
+            // Animation du choix de l'ordinateur
+            computerChoiceDisplay.textContent = '❓';
+            computerChoiceDisplay.classList.remove('flip-animation', 'glow-win', 'glow-lose', 'glow-draw');
+            
+            setTimeout(() => {
+                computerChoiceDisplay.textContent = choiceEmojis[computerChoice];
+                computerChoiceDisplay.classList.add('flip-animation');
+            }, 500);
+            
+            // Déterminer le gagnant
+            const result = determineWinner(playerChoice, computerChoice);
+            
+            // Mettre à jour les scores et afficher le résultat
+            setTimeout(() => {
+                displayResult(result, playerChoice, computerChoice);
+                
+                // Vérifier si la partie est terminée
+                if (playerScore >= 3 || computerScore >= 3) {
+                    endGame();
+                }
+                
+                // Enregistrer le choix du joueur pour l'IA difficile
+                playerChoicesHistory.push(playerChoice);
+            }, 1000);
+        }
+        
+        function getComputerChoice(playerChoice) {
+            switch (difficulty) {
+                case 'easy':
+                    // Choix aléatoire
+                    return ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
+                
+                case 'medium':
+                    // Évite de perdre trop souvent (50% de chance de contrer)
+                    if (Math.random() < 0.5) {
+                        // Contrer le choix probable du joueur
+                        if (playerChoice === 'rock') return 'paper';
+                        if (playerChoice === 'paper') return 'scissors';
+                        if (playerChoice === 'scissors') return 'rock';
+                    }
+                    return ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
+                
+                case 'hard':
+                    // Anticipe les choix probables du joueur
+                    if (playerChoicesHistory.length > 2) {
+                        // Trouver le pattern des choix du joueur
+                        const lastThree = playerChoicesHistory.slice(-3);
+                        const counts = { rock: 0, paper: 0, scissors: 0 };
+                        
+                        lastThree.forEach(choice => counts[choice]++);
+                        
+                        // Trouver le choix le plus fréquent
+                        let mostFrequent = 'rock';
+                        if (counts.paper > counts[mostFrequent]) mostFrequent = 'paper';
+                        if (counts.scissors > counts[mostFrequent]) mostFrequent = 'scissors';
+                        
+                        // Contrer le choix probable
+                        if (mostFrequent === 'rock') return 'paper';
+                        if (mostFrequent === 'paper') return 'scissors';
+                        if (mostFrequent === 'scissors') return 'rock';
+                    }
+                    // Si pas assez de données, utiliser la stratégie moyenne
+                    if (Math.random() < 0.7) {
+                        if (playerChoice === 'rock') return 'paper';
+                        if (playerChoice === 'paper') return 'scissors';
+                        if (playerChoice === 'scissors') return 'rock';
+                    }
+                    return ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
+                
+                default:
+                    return ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
+            }
+        }
+        
+        function determineWinner(playerChoice, computerChoice) {
+            if (playerChoice === computerChoice) return 'draw';
+            
+            if (
+                (playerChoice === 'rock' && computerChoice === 'scissors') ||
+                (playerChoice === 'paper' && computerChoice === 'rock') ||
+                (playerChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                return 'win';
+            }
+            
+            return 'lose';
+        }
+        
+        function displayResult(result, playerChoice, computerChoice) {
+            // Mettre à jour les scores
+            if (result === 'win') {
+                playerScore++;
+                playerScoreDisplay.textContent = playerScore;
+                roundResultDisplay.textContent = 'Gagné!';
+                gameStatusDisplay.textContent = `${choiceEmojis[playerChoice]} bat ${choiceEmojis[computerChoice]}`;
+                computerChoiceDisplay.classList.add('glow-lose');
+                playSound(winSound);
+            } else if (result === 'lose') {
+                computerScore++;
+                computerScoreDisplay.textContent = computerScore;
+                roundResultDisplay.textContent = 'Perdu!';
+                gameStatusDisplay.textContent = `${choiceEmojis[computerChoice]} bat ${choiceEmojis[playerChoice]}`;
+                computerChoiceDisplay.classList.add('glow-win');
+                playSound(loseSound);
+            } else {
+                roundResultDisplay.textContent = 'Égalité!';
+                gameStatusDisplay.textContent = `${choiceEmojis[playerChoice]} contre ${choiceEmojis[computerChoice]}`;
+                computerChoiceDisplay.classList.add('glow-draw');
+                playSound(drawSound);
+            }
+            
+            // Animation du résultat
+            roundResultDisplay.classList.add('pulse-animation');
+            setTimeout(() => roundResultDisplay.classList.remove('pulse-animation'), 500);
+        }
+        
+        function endGame() {
+            playSound(gameOverSound);
+            
+            const winner = playerScore > computerScore ? 'Joueur' : 'Ordinateur';
+            const resultText = `${winner} gagne la partie ${playerScore}-${computerScore} (Difficulté: ${getDifficultyName()})`;
+            
+            // Ajouter à l'historique
+            const historyItem = document.createElement('div');
+            historyItem.className = 'bg-white bg-opacity-5 p-3 rounded-lg';
+            historyItem.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span>${new Date().toLocaleString()}</span>
+                    <span class="font-medium ${winner === 'Joueur' ? 'text-green-400' : 'text-red-400'}">
+                        ${resultText}
+                    </span>
+                </div>
+            `;
+            historyList.prepend(historyItem);
+            
+            gameHistory.push(resultText);
+            gameStatusDisplay.textContent = `Partie terminée! ${resultText}`;
+            roundResultDisplay.textContent = 'Jeu terminé!';
+            
+            // Afficher les boutons de fin de partie
+            restartBtn.classList.remove('hidden');
+            changeDifficultyBtn.classList.remove('hidden');
+            restartBtn.classList.add('shake-animation');
+            setTimeout(() => restartBtn.classList.remove('shake-animation'), 1000);
+        }
+        
+        function resetGame() {
+            playerScore = 0;
+            computerScore = 0;
+            playerChoicesHistory = [];
+            
+            playerScoreDisplay.textContent = '0';
+            computerScoreDisplay.textContent = '0';
+            computerChoiceDisplay.textContent = '❓';
+            computerChoiceDisplay.classList.remove('flip-animation', 'glow-win', 'glow-lose', 'glow-draw');
+            
+            roundResultDisplay.textContent = 'Prêt à jouer?';
+            gameStatusDisplay.textContent = 'Choisissez une option';
+            
+            restartBtn.classList.add('hidden');
+            changeDifficultyBtn.classList.add('hidden');
+        }
+        
+        function getDifficultyName() {
+            switch (difficulty) {
+                case 'easy': return 'Facile';
+                case 'medium': return 'Moyen';
+                case 'hard': return 'Difficile';
+                default: return '';
+            }
+        }
+        
+        function playSound(sound) {
+            sound.currentTime = 0;
+            sound.play().catch(e => console.log("Le son n'a pas pu être joué:", e));
+        }
+    </script>
+</body>
+</html>
