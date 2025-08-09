@@ -1,165 +1,160 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <title>Blog - Portfolio</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog - Mon Portfolio</title>
-  <meta name="description" content="Découvrez mes articles sur le développement web, le design et l'accessibilité.">
-  <!-- Base Path -->
   <meta name="base-path" content="/portfolio/">
-  <base href="/portfolio/">  
-  <!-- Link Loader -->
+  <base href="/portfolio/">
   <section id="headLink"></section>
-  <link rel="stylesheet" href="assets/css/blog.css">
+  <style>
+    :root {
+      --primary-color: #9b59b6;
+      --secondary-color: #e74c3c;
+      --text-color: #2c3e50;
+      --text-light: #7f8c8d;
+      --bg-color: #f8f9fa;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    .coming-soon {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .coming-soon::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(155, 89, 182, 0.1) 0%, rgba(155, 89, 182, 0) 70%);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+      z-index: -1;
+    }
+    
+    .coming-soon::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(231, 76, 60, 0.05) 0%, rgba(231, 76, 60, 0) 70%);
+      border-radius: 50%;
+      bottom: -200px;
+      left: -100px;
+      z-index: -1;
+    }
+    
+    .icon-container {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .icon {
+      font-size: 4rem;
+      color: white;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin: 0 0 1rem 0;
+      background: linear-gradient(135deg, var(--text-color), var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .btn-return {
+      display: inline-block;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+    
+    .btn-return:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      .icon-container {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header Loader -->
-  <header id="mainHeader"></header>
+  <section id="mainHeader"></section>
 
-  <main class="blog-container">
-    <h1 class="page-title">Mon Blog</h1>
-    <p class="page-subtitle">Partage d'expériences et de connaissances en développement web</p>
-    
-    <!-- Barre de recherche et filtres -->
-    <section class="blog-filters">
-      <form class="search-form" role="search" aria-label="Recherche d'articles">
-        <div class="search-group">
-          <label for="search-input" class="visually-hidden">Rechercher un article</label>
-          <input type="search" id="search-input" placeholder="Rechercher un article..." class="search-input">
-          <button type="submit" class="search-button" aria-label="Lancer la recherche">
-            <span class="search-icon">🔍</span>
-          </button>
-        </div>
-        
-        <div class="filter-group">
-          <fieldset class="category-filter">
-            <legend>Catégories</legend>
-            <div class="filter-options">
-              <input type="radio" name="category" id="all-categories" value="all" checked>
-              <label for="all-categories">Toutes</label>
-              
-              <input type="radio" name="category" id="css-category" value="css">
-              <label for="css-category">CSS</label>
-              
-              <input type="radio" name="category" id="accessibility-category" value="accessibility">
-              <label for="accessibility-category">Accessibilité</label>
-              
-              <input type="radio" name="category" id="webdev-category" value="webdev">
-              <label for="webdev-category">Développement Web</label>
-            </div>
-          </fieldset>
-          
-          <fieldset class="sort-options">
-            <legend>Trier par</legend>
-            <div class="sort-buttons">
-              <button type="button" class="sort-btn active" data-sort="date-desc">
-                <span class="visually-hidden">Trier par date</span> Plus récent
-              </button>
-              <button type="button" class="sort-btn" data-sort="date-asc">
-                <span class="visually-hidden">Trier par date</span> Plus ancien
-              </button>
-              <button type="button" class="sort-btn" data-sort="title-asc">
-                <span class="visually-hidden">Trier par titre</span> A-Z
-              </button>
-            </div>
-          </fieldset>
-        </div>
-      </form>
-    </section>
-
-    <!-- Liste des articles -->
-    <section class="articles-grid" aria-label="Liste des articles">
-      <!-- Article 1 -->
-      <article class="article-card" data-category="css" data-date="2025-03-15">
-        <div class="article-image">
-          <img src="../assets/img/article1.jpg" alt="Illustration CSS Grid" loading="lazy">
-        </div>
-        <div class="article-content">
-          <div class="article-meta">
-            <span class="article-category">CSS</span>
-            <time datetime="2025-03-15" class="article-date">15 mars 2025</time>
-          </div>
-          <h2 class="article-title">
-            <a href="../article/article-css-tricks.html">CSS Tricks avancées</a>
-          </h2>
-          <p class="article-excerpt">Découvrez mes astuces CSS préférées pour créer des interfaces modernes et réactives.</p>
-          <a href="../article/article-css-tricks.html" class="read-more" aria-label="Lire l'article CSS Tricks avancées">Lire la suite</a>
-        </div>
-      </article>
-
-      <!-- Article 2 -->
-      <article class="article-card" data-category="accessibility" data-date="2025-01-25">
-        <div class="article-image">
-          <img src="../assets/img/article2.jpg" alt="Symbole d'accessibilité web" loading="lazy">
-        </div>
-        <div class="article-content">
-          <div class="article-meta">
-            <span class="article-category">Accessibilité</span>
-            <time datetime="2025-01-25" class="article-date">25 janvier 2025</time>
-          </div>
-          <h2 class="article-title">
-            <a href="../article/article-accessibilite.html">Accessibilité Web : Guide Complet</a>
-          </h2>
-          <p class="article-excerpt">Les bonnes pratiques pour rendre vos sites accessibles à tous les utilisateurs, quels que soient leurs besoins.</p>
-          <a href="../article/article-accessibilite.html" class="read-more" aria-label="Lire l'article Accessibilité Web">Lire la suite</a>
-        </div>
-      </article>
-
-      <!-- Article 3 -->
-      <article class="article-card" data-category="css" data-date="2024-11-10">
-        <div class="article-image">
-          <img src="../assets/img/article3.jpg" alt="Comparaison Flexbox et Grid" loading="lazy">
-        </div>
-        <div class="article-content">
-          <div class="article-meta">
-            <span class="article-category">CSS</span>
-            <time datetime="2024-11-10" class="article-date">10 novembre 2024</time>
-          </div>
-          <h2 class="article-title">
-            <a href="../article/article-flexbox-grid.html">Flexbox vs Grid : Lequel Choisir ?</a>
-          </h2>
-          <p class="article-excerpt">Comparaison détaillée entre Flexbox et Grid pour choisir la meilleure solution selon vos besoins de mise en page.</p>
-          <a href="../article/article-flexbox-grid.html" class="read-more" aria-label="Lire l'article Flexbox vs Grid">Lire la suite</a>
-        </div>
-      </article>
-
-      <!-- Article 4 -->
-      <article class="article-card" data-category="webdev" data-date="2024-08-05">
-        <div class="article-image">
-          <img src="../assets/img/article4.jpg" alt="Illustration RGPD" loading="lazy">
-        </div>
-        <div class="article-content">
-          <div class="article-meta">
-            <span class="article-category">Développement Web</span>
-            <time datetime="2024-08-05" class="article-date">5 août 2024</time>
-          </div>
-          <h2 class="article-title">
-            <a href="../article/article-rgpd.html">RGPD pour les Développeurs</a>
-          </h2>
-          <p class="article-excerpt">Les éléments essentiels du RGPD que tout développeur web devrait connaître pour des applications conformes.</p>
-          <a href="../article/article-rgpd.html" class="read-more" aria-label="Lire l'article RGPD pour les Développeurs">Lire la suite</a>
-        </div>
-      </article>
-    </section>
-
-    <!-- Pagination -->
-    <nav class="pagination" aria-label="Navigation des pages">
-      <button class="pagination-button" disabled aria-label="Page précédente">
-        <span aria-hidden="true">Précédent</span>
-      </button>
-      <button class="pagination-button active" aria-current="page" aria-label="Page 1">1</button>
-      <button class="pagination-button" aria-label="Page 2">2</button>
-      <button class="pagination-button" aria-label="Page 3">3</button>
-      <button class="pagination-button" aria-label="Page suivante">
-        <span aria-hidden="true">Suivant</span>
-      </button>
-    </nav>
+  <main class="coming-soon">
+    <div class="icon-container">
+        <div class="icon">📝</div>
+    </div>
+    <h1>Blog en construction</h1>
+    <p>Je prépare actuellement du contenu passionnant pour vous. Revenez bientôt pour découvrir mes articles, mes projets et ma veille sur différentes technologies et plus encore !</p>
+    <a href="index.html" class="btn-return">Retour à l'accueil</a>
   </main>
-  
-  <!-- Footer -->
+
   <footer id="mainFooter" class="footer"></footer>
   
+  <!-- Scripts -->
   <script src="assets/js/sectionsLoader.js"></script>
-  <script src="assets/js/blog.js" defer></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
