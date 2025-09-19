@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Title -->
+    <title>Test de Réflexe - Mon Portfolio</title>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Base Path -->
+    <meta name="base-path" content="/portfolio/">
+    <base href="/portfolio/"> 
+    <!-- Link Loader -->
+    <section id="headLink"></section>
+    <link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+    <!-- Header Loader -->
+    <section id="mainHeader"></section>
+
+    <br>
+    <br>
+    <br>
+
+    <main class="project-container">
+        <article class="project-article">
+            <!-- En-tête du projet -->
+            <header class="project-header">
+                <div class="project-meta">
+                    <span class="project-category">Jeu en Ligne</span>
+                    <span class="project-date">8 Septembre 2025</span>
+                </div>
+                <h1 class="project-title">Test de Réflexe</h1>
+                <p class="project-excerpt">Un jeu simple mais addictif pour tester vos réflexes et votre temps de réaction.</p>
+            </header>
+
+            <!-- Image principale -->
+            <figure class="project-featured-image">
+                <img src="../../../../projects/games/reflex-test/screenshot.png" alt="Capture d'écran du Test de Réflexe" loading="lazy" onerror="this.src='../../../assets/img/placeholder-project.jpg'">
+                <figcaption>Interface du jeu Test de Réflexe</figcaption>
+            </figure>
+
+            <!-- Détails du projet -->
+            <section class="project-details">
+                <div class="project-overview">
+                    <h2>Présentation du Projet</h2>
+                    <p>Le Test de Réflexe est un jeu en ligne simple mais captivant qui mesure votre temps de réaction. Le principe est simple : cliquez sur le bouton dès qu'il change de couleur pour obtenir le meilleur score possible.</p>
+                    
+                    <h3>Contexte</h3>
+                    <p>Ce projet a été développé dans le but de créer une application web interactive mettant en pratique les technologies front-end modernes. C'était également l'occasion d'explorer les fonctionnalités de chronométrage et d'animation en JavaScript.</p>
+                    
+                    <h3>Objectifs</h3>
+                    <ul>
+                        <li>Créer un jeu simple et intuitif</li>
+                        <li>Mesurer avec précision le temps de réaction du joueur</li>
+                        <li>Fournir un retour visuel immédiat</li>
+                        <li>Optimiser les performances pour une expérience fluide</li>
+                    </ul>
+                </div>
+
+                <!-- Technologies utilisées -->
+                <div class="project-tech">
+                    <h3>Technologies utilisées</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Web Audio API</span>
+                    </div>
+                </div>
+
+                <!-- Galerie d'images -->
+                <div class="project-gallery">
+                    <h3>Fonctionnalités</h3>
+                    <div class="gallery-grid">
+                        <figure class="gallery-item">
+                            <h4>Chronomètre de précision</h4>
+                            <p>Mesure du temps de réaction avec une grande précision en millisecondes</p>
+                        </figure>
+                        <figure class="gallery-item">
+                            <h4>Effets sonores</h4>
+                            <p>Retour sonore pour une expérience plus immersive</p>
+                        </figure>
+                        <figure class="gallery-item">
+                            <h4>Interface intuitive</h4>
+                            <p>Design épuré et facile à prendre en main</p>
+                        </figure>
+                        <figure class="gallery-item">
+                            <h4>Animation fluide</h4>
+                            <p>Transitions douces pour une expérience utilisateur optimale</p>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Détails techniques -->
+                <div class="project-technical">
+                    <h3>Détails techniques</h3>
+                    <p>Le jeu utilise une approche simple mais efficace pour mesurer le temps de réaction :</p>
+                    <ul>
+                        <li>Utilisation de <code>performance.now()</code> pour une mesure précise du temps</li>
+                        <li>Gestion des états du jeu avec des variables JavaScript</li>
+                        <li>Animations CSS pour les transitions fluides</li>
+                        <li>Web Audio API pour les effets sonores</li>
+                    </ul>
+                </div>
+
+                <!-- Liens -->
+                <div class="project-links">
+                    <h3>Essayer le jeu</h3>
+                    <div class="link-buttons">
+                        <a href="../../projects/games/reflex-test/reflex-test.html" class="btn btn-primary" target="_blank">Jouer au Test de Réflexe</a>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer id="mainFooter" class="footer"></footer>
+
+    <script src="assets/js/sectionsLoader.js"></script>
+</body>
+</html>
