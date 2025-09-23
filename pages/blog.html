@@ -1,160 +1,416 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Blog - Portfolio</title>
+  <!-- Title -->
+  <title>Mon Blog - Portfolio</title>
+  <!-- Meta -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Base Path -->
   <meta name="base-path" content="/portfolio/">
-  <base href="/portfolio/">
+  <base href="/portfolio/"> 
+  <!-- Link Loader -->
   <section id="headLink"></section>
-  <style>
-    :root {
-      --primary-color: #9b59b6;
-      --secondary-color: #e74c3c;
-      --text-color: #2c3e50;
-      --text-light: #7f8c8d;
-      --bg-color: #f8f9fa;
-    }
-    
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-    
-    .coming-soon {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .coming-soon::before {
-      content: '';
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(155, 89, 182, 0.1) 0%, rgba(155, 89, 182, 0) 70%);
-      border-radius: 50%;
-      top: -100px;
-      right: -100px;
-      z-index: -1;
-    }
-    
-    .coming-soon::after {
-      content: '';
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(231, 76, 60, 0.05) 0%, rgba(231, 76, 60, 0) 70%);
-      border-radius: 50%;
-      bottom: -200px;
-      left: -100px;
-      z-index: -1;
-    }
-    
-    .icon-container {
-      width: 120px;
-      height: 120px;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-    
-    .icon {
-      font-size: 4rem;
-      color: white;
-    }
-    
-    h1 {
-      font-size: 3rem;
-      margin: 0 0 1rem 0;
-      background: linear-gradient(135deg, var(--text-color), var(--primary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    p {
-      font-size: 1.2rem;
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    
-    .btn-return {
-      display: inline-block;
-      padding: 12px 30px;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-    }
-    
-    .btn-return:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
-    }
-    
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      
-      p {
-        font-size: 1rem;
-      }
-      
-      .icon-container {
-        width: 100px;
-        height: 100px;
-      }
-      
-      .icon {
-        font-size: 3rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/parcoursCards.css">
 </head>
 <body>
+  <!-- Header Loader -->
   <section id="mainHeader"></section>
 
-  <main class="coming-soon">
-    <div class="icon-container">
-        <div class="icon">📝</div>
-    </div>
-    <h1>Blog en construction</h1>
-    <p>Je prépare actuellement du contenu passionnant pour vous. Revenez bientôt pour découvrir mes articles, mes projets et ma veille sur différentes technologies et plus encore !</p>
-    <a href="index.html" class="btn-return">Retour à l'accueil</a>
+  <br>
+  <br>
+  <br>
+  <main class="parcours-container">
+    <h1>Mon Blog</h1>
+    
+    <section class="experience">
+      <h2>Mes Projets</h2>
+      <div class="experience-grid">
+        <!-- projet weather-app -->
+        <a href="pages/blog/projets/weather-app.html">
+          <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+            <div style="
+            position: absolute; 
+            top: 0; left: 0; right: 0; bottom: 0; 
+            background-image: url('/portfolio/assets/img/why.png'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            opacity: 0.1; z-index: 1; 
+            pointer-events: none;">
+            </div>
+            <div style="position: relative; z-index: 2;">
+              <div class="experience-header">
+                <span class="date">2025</span>
+                <span class="badge" style="background-color: #7dafe6;">Angular</span>
+              </div>
+              <h3>Application météo</h3>
+              <p class="company">Weather App</p>
+              <p>Application météo réalisée avec Angular, Docker et Node.js</p>
+            </div>
+          </div>
+        </a>
+        <!-- projet shifumi -->
+        <a href="pages/blog/projets/shifoumi.html">
+          <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+            <div style="
+            position: absolute; 
+            top: 0; left: 0; right: 0; bottom: 0; 
+            background-image: url('/portfolio/assets/img/blog/shifumi-difficulty.png'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            opacity: 0.1; z-index: 1; 
+            pointer-events: none;">
+            </div>
+            <div style="position: relative; z-index: 2;">
+              <div class="experience-header">
+                <span class="date">2025</span>
+                <span class="badge" style="background-color: #7451eb; color: black;">Tailwind, JS</span>
+              </div>
+              <h3>Pierre-Feuille-Ciseaux</h3>
+              <p class="company">Shifumi ce jeu simple permet de jouer contre l'IA</p>
+              <p>Doter de plusieurs difficulté avec chacune sa propre logique</p>
+            </div>
+          </div>
+        </a>
+        <!-- projet reflex-game -->
+        <a href="pages/blog/projets/test-reflexe.html">
+          <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+            <div style="
+            position: absolute; 
+            top: 0; left: 0; right: 0; bottom: 0; 
+            background-image: url('/portfolio/assets/img/blog/reflex-game.png'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            opacity: 0.1; z-index: 1; 
+            pointer-events: none;">
+            </div>
+            <div style="position: relative; z-index: 2;">
+              <div class="experience-header">
+                <span class="date">2025</span>
+                <span class="badge" style="background-color: #7dafe6;">JS</span>
+              </div>
+              <h3>Test de réactivité</h3>
+              <p class="company">Reflex-game ce jeu simple permet de tester votre réactivité</p>
+              <p>Integrable dans n'importe quel site web via une section</p>
+            </div>
+          </div>
+        </a>
+        <!-- projet application CRUD -->
+        <a href="pages/blog/projets/gsb.html">
+          <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+            <div style="
+            position: absolute; 
+            top: 0; left: 0; right: 0; bottom: 0; 
+            background-image: url('/portfolio/assets/img/why.png'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            opacity: 0.1; z-index: 1; 
+            pointer-events: none;">
+            </div>
+            <div style="position: relative; z-index: 2;">
+              <div class="experience-header">
+                <span class="date">2024</span>
+                <span class="badge" style="background-color: #4a6bdf;">Java</span>
+              </div>
+              <h3>GSB - Gestion des utilisateurs</h3>
+              <p class="company">Application permettant la gestion des utilisateurs</p>
+              <p>Via une interface administrateur permet l'usage du CRUD (Creat, Read, Update, Delete)</p>
+            </div>
+          </div>
+        </a>
+        <!-- projet site web association ACCB -->
+        <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+          <div style="
+          position: absolute; 
+          top: 0; left: 0; right: 0; bottom: 0; 
+          background-image: url('/portfolio/assets/img/accb_banner.png'); 
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          opacity: 0.1; z-index: 1; 
+          pointer-events: none;">
+          </div>
+          <div style="position: relative; z-index: 2;">
+            <div class="experience-header">
+              <span class="date">2024</span>
+              <span class="badge" style="background-color: #4a6bdf;">Tailwind CSS</span>
+            </div>
+            <h3>Site web association ACCB</h3>
+            <p class="company">Site web de l'association ACCB</p>
+            <p>Site web de l'association ACCB réalisée en Tailwind CSS, HTML et JS</p>
+          </div>
+        </div>
+        <!-- projet brouillon -->
+        <!-- <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+          <div style="
+          position: absolute; 
+          top: 0; left: 0; right: 0; bottom: 0; 
+          background-image: url('/portfolio/assets/img/PopArTech.png'); 
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          opacity: 0.1; z-index: 1;                                                 
+          pointer-events: none;">
+          </div>
+          <div style="position: relative; z-index: 2;">
+            <div class="experience-header">
+              <span class="date">2024</span>
+              <span class="badge" style="background-color: #4a6bdf;">Java</span>
+            </div>
+            <h3>GSB - Gestion des utilisateurs</h3>
+            <p class="company">Application permettant la gestion des utilisateurs</p>
+            <p>Via une interface administrateur permet l'usage du CRUD (Creat, Read, Update, Delete)</p>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- <section class="experience">
+      <h2>Projets Étudiants</h2>
+      <div class="experience-grid">
+        
+
+
+      </div>
+    </section> -->
+
+    <section class="experience">
+      <h2>Articles</h2>
+      <div class="experience-grid">
+        <!-- Mentions légales -->
+        <!-- <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+          <div style="
+          position: absolute; 
+          top: 0; left: 0; right: 0; bottom: 0; 
+          /* background-color: #e74c3c;  */
+          background-image: url('/portfolio/assets/img/PopArTech.png'); 
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          opacity: 0.1; z-index: 1; 
+          pointer-events: none;">
+          </div>
+          <div style="position: relative; z-index: 2;">
+            <div class="experience-header">
+              <span class="date">2025</span>
+              <span class="badge" style="background-color: #e74c3c;">Legale & Conformité</span>
+            </div>
+            <h3>Guide Complet sur les Mentions Légales pour les Sites Web</h3>
+            <p class="company">Legale & Conformité</p>
+            <p>Guide Complet sur les Mentions Légales pour les Sites Web</p>
+          </div>
+        </div> -->
+
+        <!-- PopArTech news coordonées -->
+        <!-- <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+          <div style="
+          position: absolute; 
+          top: 0; left: 0; right: 0; bottom: 0; 
+          /* background-color: #e74c3c;  */
+          background-image: url('/portfolio/assets/img/PopArTech.png'); 
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          opacity: 0.1; z-index: 1; 
+          pointer-events: none;">
+          </div>
+          <div style="position: relative; z-index: 2;">
+            <div class="experience-header">
+              <span class="date">2025</span>
+              <span class="badge" style="background-color: #e74c3c;">PopArTech</span>
+            </div>
+            <h3>Nouvelles emplacements de l'association PopArTech</h3>
+            <p class="company">PopArTech</p>
+            <p>Déménagement de l'association PopArTech dans des nouveaux locaux a Lanester</p>
+          </div>
+        </div> -->
+        
+        <!-- Python -->
+        <!-- <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+          <div style="
+          position: absolute; 
+          top: 0; left: 0; right: 0; bottom: 0; 
+          background-image: url('/portfolio/assets/img/PopArTech.png'); 
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          opacity: 0.1; z-index: 1; 
+          pointer-events: none;">
+          </div>
+          <div style="position: relative; z-index: 2;">
+            <div class="experience-header">
+              <span class="date">2024</span>
+              <span class="badge" style="background-color: #7451eb;">OpenClassrooms</span>
+            </div>
+            <h3>Apprenez à programmer avec Python</h3>
+            <p class="company">Formation en ligne - 35h</p>
+            <p>Maîtrise des fondamentaux de la programmation Python et développement d'applications</p>
+          </div>
+        </div> -->
+
+        <!-- Développement Web -->
+        <!-- <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+          <div style="
+          position: absolute; 
+          top: 0; left: 0; right: 0; bottom: 0; 
+          background-image: url('/portfolio/assets/img/PopArTech.png'); 
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          opacity: 0.1; z-index: 1; 
+          pointer-events: none;">
+          </div>
+          <div style="position: relative; z-index: 2;">
+            <div class="experience-header">
+              <span class="date">2024</span>
+              <span class="badge" style="background-color: #2ecc71;">OpenClassrooms</span>
+            </div>
+            <h3>Développez votre site web avec HTML5 et CSS3</h3>
+            <p class="company">Formation en ligne - 30h</p>
+            <p>Création de sites web responsifs avec les dernières normes HTML5 et CSS3</p>
+          </div>
+        </div> -->
+
+        <!-- JavaScript -->
+        <!-- <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+          <div style="
+          position: absolute; 
+          top: 0; left: 0; right: 0; bottom: 0; 
+          background-image: url('/portfolio/assets/img/PopArTech.png'); 
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          opacity: 0.1; z-index: 1; 
+          pointer-events: none;">
+          </div>
+          <div style="position: relative; z-index: 2;">
+            <div class="experience-header">
+              <span class="date">2024</span>
+              <span class="badge" style="background-color: #f39c12;">OpenClassrooms</span>
+            </div>
+            <h3>Apprenez à programmer avec JavaScript</h3>
+            <p class="company">Formation en ligne - 40h</p>
+            <p>Découverte du langage JavaScript et de ses fonctionnalités avancées</p>
+          </div>
+        </div> -->
+
+        <!-- Git et GitHub -->
+        <!-- <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+          <div style="
+          position: absolute; 
+          top: 0; left: 0; right: 0; bottom: 0; 
+          background-image: url('/portfolio/assets/img/PopArTech.png'); 
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          opacity: 0.1; z-index: 1; 
+          pointer-events: none;">
+          </div>
+          <div style="position: relative; z-index: 2;">
+            <div class="experience-header">
+              <span class="date">2023</span>
+              <span class="badge" style="background-color: #e74c3c;">OpenClassrooms</span>
+            </div>
+            <h3>Gérez du code avec Git et GitHub</h3>
+            <p class="company">Formation en ligne - 20h</p>
+            <p>Maîtrise des concepts de contrôle de version avec Git et collaboration sur GitHub</p>
+          </div>
+        </div> -->
+
+        <!-- Base de données -->
+        <!-- <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+          <div style="
+          position: absolute; 
+          top: 0; left: 0; right: 0; bottom: 0; 
+          background-image: url('/portfolio/assets/img/PopArTech.png'); 
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          opacity: 0.1; z-index: 1; 
+          pointer-events: none;">
+          </div>
+          <div style="position: relative; z-index: 2;">
+            <div class="experience-header">
+              <span class="date">2023</span>
+              <span class="badge" style="background-color: #9b59b6;">OpenClassrooms</span>
+            </div>
+            <h3>Concevez votre base de données</h3>
+            <p class="company">Formation en ligne - 25h</p>
+            <p>Modélisation et conception de bases de données relationnelles avec SQL</p>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- <section class="experience">
+      <h2>Veille Technologique</h2>
+      <div class="experience-grid">
+        <div class="experience-card" style="position: relative; overflow: hidden; cursor: pointer;">
+          <div style="
+          position: absolute; 
+          top: 0; left: 0; right: 0; bottom: 0; 
+          background-image: url('/portfolio/assets/img/PopArTech.png'); 
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          opacity: 0.1; z-index: 1; 
+          pointer-events: none;">
+          </div>
+          <div style="position: relative; z-index: 2;">
+            <div class="experience-header">
+              <span class="date">2023</span>
+              <span class="badge" style="background-color: #4a6bdf;">PIX</span>
+            </div>
+            <h3>Certification PIX - Niveau avancé</h3>
+            <p class="company">Évaluation et certification des compétences numériques</p>
+            <p>Validation des compétences numériques selon le cadre de référence européen DIGCOMP</p>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- <section class="experience">
+      <h2>Divers</h2>
+      <div class="experience-grid">
+        
+
+
+      </div>
+    </section> -->
   </main>
 
+  <!-- Footer Loader -->
   <footer id="mainFooter" class="footer"></footer>
-  
-  <!-- Scripts -->
+
+  <!-- <script>
+    // Chargement du header et du footer
+    document.addEventListener('DOMContentLoaded', function() {
+      // Chargement du header
+      fetch('includes/header.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('mainHeader').innerHTML = html;
+          // Mise à jour du lien actif
+          const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+          document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+              link.classList.add('active');
+            }
+          });
+        });
+
+      // Chargement du footer
+      fetch('includes/footer.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('mainFooter').innerHTML = html;
+        });
+    });
+  </script> -->
   <script src="assets/js/sectionsLoader.js"></script>
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
